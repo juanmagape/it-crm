@@ -1,26 +1,27 @@
 import { NavLink } from "react-router-dom";
-
-const nav = [
-    {to: "/", icon: "", label: "Dashboard"},
-    {to: "/offices", icon: "", label: "Oficinas"},
-    {to: "/employees", icon: "", label: "Empleados"},
-    {to: "/tickets", icon: "", label: "Tickets"},
-    {to: "/inventory", icon: "", label: "Inventario"},
-    {to: "/employeeportal", icon: "", label: "Portal empleado"}
-]
+import { useAuthStore } from "../store/authStore"; 
 
 function NavBar() {
-    return (
-        <div>
-            <h1>I.T CRM</h1>
+    const { perfil } = useAuthStore();
 
-            {nav.map((item) => (
-                <NavLink 
-                key={item.to}
-                to={item.to}>
-                    {item.label}
-                    </NavLink>
-            ))}
+    if (!perfil) return null;
+
+    return (
+        <div >
+            <h1 >I.T CRM</h1>
+            <p >Hola, {perfil.nombre_completo}</p>
+
+            <div >
+                <NavLink to="/employeeportal" >Portal Empleado</NavLink>
+
+                {perfil.es_tecnico && (
+                    <>
+                        <NavLink to="/" >Dashboard</NavLink>
+                        <NavLink to="/tickets" >Tickets</NavLink>
+                        <NavLink to="/inventory" >Inventario</NavLink>
+                    </>
+                )}
+            </div>
         </div>
     )
 }
