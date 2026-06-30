@@ -2,7 +2,7 @@ import './App.css'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { useAuthStore } from './store/authStore'
 
-import NavBar from './components/Navbar' // Asegúrate de que la ruta es correcta
+import NavBar from './components/Navbar'
 
 import Login from './components/login'
 import Dashboard from './components/dashboard'
