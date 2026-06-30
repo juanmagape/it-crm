@@ -15,7 +15,7 @@ function Inventory() {
         }
     })
 
-    if (isLoading) return <p>Cargando empleados...</p>
+    if (isLoading) return <p>Cargando inventario...</p>
 
 
     return (
