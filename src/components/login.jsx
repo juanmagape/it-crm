@@ -43,19 +43,21 @@ function Login() {
         <form onSubmit={handleLogin}>
             <h2>Acceso Login</h2>
 
+            <label>Número de empleado</label>
             <input 
                 type="number"
                 value={numeroEmpleado}
                 onChange={(e) => setNumeroEmpleado(e.target.value)}
             />
 
+            <label>Contraseña</label>
             <input 
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
             />
 
-            <button type='submit'>Entrar</button>
+            <button type='submit'>Acceder</button>
         </form>
     );
 }

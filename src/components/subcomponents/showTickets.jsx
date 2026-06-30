@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "../../lib/supabase"
 import { useState } from "react";
+import formatearFecha from './formatearFecha'
 
 function ShowTickets() {
 
@@ -34,28 +35,18 @@ function ShowTickets() {
       </button>
     );
 
-    const formatearFecha = (fechaIn) => {
-    if (!fechaIn) return "Sin fecha"; 
-    
-    const fecha = new Date(fechaIn);
-    
-    return fecha.toLocaleString('es-ES', {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
-    });
-};
+    const estadosUnicos = [...new Set(tickets?.map(ticket => ticket.estado).filter(Boolean))];
 
     return (
 
       <>
       <div>
-            <FiltroButton estadoBD="todos" label="Todos" />
-            <FiltroButton estadoBD="en curso" label="En curso" />
-            <FiltroButton estadoBD="espera cliente" label="Pendiente" />
-            <FiltroButton estadoBD="resuelto" label="Cerrado" />
+          <FiltroButton estadoBD="todos" label="Todos" />
+
+            {estadosUnicos.map(estado => (
+                <FiltroButton estadoBD={estado} label={estado} />
+            ))}
+
         </div>
 
         <table>

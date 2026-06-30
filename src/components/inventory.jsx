@@ -30,22 +30,19 @@ function Inventory() {
       </button>
     );
 
+    const estadosUnicos = [...new Set(inventory?.map(inv => inv.tipo).filter(Boolean))];
+
     return (
         <div>
             <h1>Inventory</h1>
         
-        <div>
-            <FiltroButton estadoBD="todos" label="Todos" />
-            <FiltroButton estadoBD="Móvil" label="Móvil" />
-            <FiltroButton estadoBD="Portátil" label="Portátil" />
-            <FiltroButton estadoBD="Periférico" label="Periférico" />
-            <FiltroButton estadoBD="Impresora" label="Impresora" />
-            <FiltroButton estadoBD="Dock Station" label="Dock Station" />
-            <FiltroButton estadoBD="Monitor" label="Monitor" />
-            <FiltroButton estadoBD="Tablet" label="Tablet" />
-            <FiltroButton estadoBD="Auriculares" label="Auriculares" />
-            <FiltroButton estadoBD="Servidor" label="Servidor" />
-        </div>
+
+            <div>
+                <FiltroButton estadoBD="todos" label="Todos" />
+                {estadosUnicos.map(estado => (
+                    <FiltroButton estadoBD={estado} label={estado}></FiltroButton>
+                ))}
+            </div>
         
         <table>
             <thead>
@@ -63,7 +60,7 @@ function Inventory() {
                         <td>{inv.numero_equipo}</td>
                         <td>{inv.modelo}</td>
                         <td>{inv.numero_serie}</td>
-                        <td>{inv.estado}</td>
+                        <td>{inv.estado ? inv.estado.charAt(0).toUpperCase() + inv.estado.slice(1) : ''}</td>
                         <td>{inv.sedes?.nombre || 'Sin oficina asignada'}</td>
                     </tr>
                 ))}

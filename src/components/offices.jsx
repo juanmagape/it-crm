@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "../lib/supabase";
+import formatearFecha from "./subcomponents/formatearFecha";
 
 function Offices() {
 
@@ -40,8 +41,8 @@ function Offices() {
                             <td>{sede.nombre}</td>
                             <td>{sede.ubicacion}</td>
                             <td>{sede.rango_ip}</td>
-                            <td>{sede.esquema_red}</td>
-                            <td>{sede.creado_en}</td>
+                            <td><a href={sede.esquema_red}>Esquema red</a></td>
+                            <td>{formatearFecha(sede.creado_en)}</td>
                             <td>{sede.responsable?.nombre_completo || 'Sin responsable asignado'}</td>            
                         </tr>
                     ))}
