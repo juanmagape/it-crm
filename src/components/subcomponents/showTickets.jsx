@@ -41,11 +41,22 @@ function ShowTickets() {
             <FiltroButton estadoBD="resuelto" label="Cerrado" />
         </div>
 
-      <ul>
-      {tickets?.map(ticket => (
-        <li key={ticket.id}>{ticket.asunto} - {ticket.estado}</li>
-      ))}
-      </ul>
+        <table>
+            <thead>
+                <tr>
+                    <th>Asunto</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {tickets?.map(ticket => (
+                    <tr key={ticket.id}>
+                        <td>{ticket.asunto}</td>
+                        <td>{ticket.estado}</td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
     </>
   );
 }

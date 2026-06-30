@@ -24,9 +24,22 @@ function Employees() {
         <div>
             <h1>Employees</h1>
 
-            {employees?.map(employee => (
-                <li key={employee.id}>{employee.nombre_completo} - {employee.cargo}</li>
-            ))}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre Completo</th>
+                        <th>Cargo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {employees?.map(employee => (
+                        <tr key={employee.id}>
+                            <td>{employee.nombre_completo}</td>
+                            <td>{employee.cargo}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
     )
 }

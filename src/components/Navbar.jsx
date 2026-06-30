@@ -19,6 +19,7 @@ function NavBar() {
                         <NavLink to="/" >Dashboard</NavLink>
                         <NavLink to="/tickets" >Tickets</NavLink>
                         <NavLink to="/employees">Empleados</NavLink>
+                        <NavLink to="/offices">Oficinas</NavLink>
                         <NavLink to="/inventory" >Inventario</NavLink>
                     </>
                 )}
