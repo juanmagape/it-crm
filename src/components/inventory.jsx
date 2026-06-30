@@ -40,7 +40,7 @@ function Inventory() {
             <div>
                 <FiltroButton estadoBD="todos" label="Todos" />
                 {estadosUnicos.map(estado => (
-                    <FiltroButton estadoBD={estado} label={estado}></FiltroButton>
+                    <FiltroButton key={estado} estadoBD={estado} label={estado}></FiltroButton>
                 ))}
             </div>
         

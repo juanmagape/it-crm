@@ -44,7 +44,7 @@ function ShowTickets() {
           <FiltroButton estadoBD="todos" label="Todos" />
 
             {estadosUnicos.map(estado => (
-                <FiltroButton estadoBD={estado} label={estado} />
+                <FiltroButton key={estado} estadoBD={estado} label={estado} />
             ))}
 
         </div>
