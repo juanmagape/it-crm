@@ -30,8 +30,17 @@ function Inventory() {
       </button>
     );
 
-    const estadosUnicos = [...new Set(inventory?.map(inv => inv.tipo).filter(Boolean))];
-
+    const categorias = [
+        "Móvil", 
+        "Portátil", 
+        "Periférico", 
+        "Impresora", 
+        "Dock Station", 
+        "Monitor", 
+        "Tablet", 
+        "Auriculares", 
+        "Servidor"
+    ];
     return (
         <div>
             <h1>Inventory</h1>
@@ -39,8 +48,8 @@ function Inventory() {
 
             <div>
                 <FiltroButton estadoBD="todos" label="Todos" />
-                {estadosUnicos.map(estado => (
-                    <FiltroButton key={estado} estadoBD={estado} label={estado}></FiltroButton>
+                {categorias.map(categoria => (
+                    <FiltroButton key={categoria} estadoBD={categoria} label={categoria}></FiltroButton>
                 ))}
             </div>
         

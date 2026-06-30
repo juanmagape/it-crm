@@ -35,7 +35,7 @@ function ShowTickets() {
       </button>
     );
 
-    const estadosUnicos = [...new Set(tickets?.map(ticket => ticket.estado).filter(Boolean))];
+    const estadosTickets = ['en curso', 'espera cliente', 'resuelto', 'nuevo'];
 
     return (
 
@@ -43,7 +43,7 @@ function ShowTickets() {
       <div>
           <FiltroButton estadoBD="todos" label="Todos" />
 
-            {estadosUnicos.map(estado => (
+            {estadosTickets.map(estado => (
                 <FiltroButton key={estado} estadoBD={estado} label={estado} />
             ))}
 
