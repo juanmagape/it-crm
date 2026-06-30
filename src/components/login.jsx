@@ -40,7 +40,6 @@ function Login() {
     } 
 
     return (
-        // Corregido a handleLogin en lugar de handleSubmit
         <form onSubmit={handleLogin}>
             <h2>Acceso Login</h2>
 
